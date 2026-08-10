@@ -141,7 +141,7 @@ const SERVICES_DATA = [
     category: 'commercial',
     icon: 'fa-store',
     shortDesc: 'Professional cleaning for shops, showrooms, malls, business spaces and other commercial establishments.',
-    img: 'https://images.unsplash.com/photo-1567449303078-57ad995bd301?auto=format&fit=crop&w=600&q=80',
+    img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80',
     fullDesc: 'Commercial venues require pristine aesthetic appeal and high hygienic standards. We deliver comprehensive commercial cleaning for retail outlets, auto showrooms, shopping complexes, and financial branches in Hyderabad.',
     inclusions: [
       'Showroom glass facade & display clean',
@@ -297,7 +297,7 @@ function renderServicesGrid(filterCategory = 'all') {
   container.innerHTML = filtered.map(service => `
     <div class="service-card" data-id="${service.id}" data-category="${service.category}">
       <div class="service-img-wrapper">
-        <img src="${service.img}" alt="${service.title}" loading="lazy" />
+        <img src="${service.img}" alt="${service.title}" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80'" />
         <div class="service-icon-badge">
           <i class="fa-solid ${service.icon}"></i>
         </div>

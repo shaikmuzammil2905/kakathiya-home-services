@@ -148,7 +148,7 @@ const BLOG_POSTS = [
     category: 'Commercial',
     date: 'June 01, 2026',
     readTime: '4 min read',
-    img: 'https://images.unsplash.com/photo-1567449303078-57ad995bd301?auto=format&fit=crop&w=800&q=80',
+    img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80',
     excerpt: 'Maintain customer trust and pass hygiene audits with commercial deep cleaning for showrooms and restaurants.',
     content: `
       <p>Clean floors, sparkling glass doors, and spotless restrooms leave a lasting first impression on shoppers and restaurant guests. Commercial cleaning builds customer loyalty and protects brand reputation in competitive Hyderabad hubs.</p>
@@ -167,7 +167,7 @@ function renderBlogGrid() {
   container.innerHTML = BLOG_POSTS.map(post => `
     <article class="blog-card" onclick="openBlogModal('${post.id}')">
       <div class="blog-img">
-        <img src="${post.img}" alt="${post.title}" loading="lazy" />
+        <img src="${post.img}" alt="${post.title}" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80'" />
       </div>
       <div class="blog-content">
         <div class="blog-meta">
