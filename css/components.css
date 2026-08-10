@@ -350,4 +350,25 @@
   .service-modal-features {
     grid-template-columns: 1fr;
   }
+  .modal-card {
+    padding: 24px 18px;
+    max-height: 88vh;
+  }
+  .blog-modal-card {
+    padding: 24px 18px;
+  }
+  .blog-modal-title {
+    font-size: 1.4rem;
+  }
+  .service-modal-hero {
+    height: 180px;
+  }
+  .service-modal-hero-overlay h2 {
+    font-size: 1.35rem;
+  }
+  .service-modal-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
+
