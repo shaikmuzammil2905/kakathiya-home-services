@@ -181,3 +181,37 @@ INSERT INTO public.view_our_work (id, type, category, category_name, title, vide
 SELECT id, type, category, category_name, title, video_src, poster, img, badge, sort_order
 FROM public.gallery
 ON CONFLICT (id) DO NOTHING;
+
+-- --------------------------------------------------------------------------
+-- SUPABASE AUTH ADMIN USER INITIAL CREATION
+-- Default Email: admin@kakatiyacleaning.com
+-- Default Password: Admin@12345 (Change immediately after login via Admin Panel)
+-- --------------------------------------------------------------------------
+
+INSERT INTO auth.users (
+  instance_id,
+  id,
+  aud,
+  role,
+  email,
+  encrypted_password,
+  email_confirmed_at,
+  raw_app_meta_data,
+  raw_user_meta_data,
+  created_at,
+  updated_at
+) VALUES (
+  '00000000-0000-0000-0000-000000000000',
+  gen_random_uuid(),
+  'authenticated',
+  'authenticated',
+  'admin@kakatiyacleaning.com',
+  crypt('Admin@12345', gen_salt('bf')),
+  now(),
+  '{"provider":"email","providers":["email"]}',
+  '{}',
+  now(),
+  now()
+)
+ON CONFLICT (email) DO NOTHING;
+
