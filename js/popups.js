@@ -180,8 +180,8 @@ function openEnquiryPopup() {
         <button class="modal-close-btn" onclick="closePopupModal('enquiryPopupModal')">
           <i class="fa-solid fa-xmark"></i>
         </button>
-        <div class="popup-icon-badge">
-          <i class="fa-solid fa-sparkles"></i>
+        <div class="popup-icon-badge popup-logo-badge">
+          <img src="assets/images/logo.png" alt="Kakatiya Logo" class="popup-badge-logo-img" />
         </div>
         <div class="modal-header text-center">
           <h3>Get Special Cleaning Offer!</h3>
