@@ -3,6 +3,8 @@
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initPreloader();
+  
   // Initialize Modules
   if (typeof initServices === 'function') initServices();
   if (typeof initBeforeAfterSlider === 'function') initBeforeAfterSlider();
@@ -16,6 +18,35 @@ document.addEventListener('DOMContentLoaded', () => {
   setupBookingForm();
   setupSmoothScroll();
 });
+
+// Preloader Progress Simulation (Image 4 Reference)
+function initPreloader() {
+  const preloader = document.getElementById('sitePreloader');
+  const progressBar = document.getElementById('preloaderProgressBar');
+  const percentText = document.getElementById('preloaderPercent');
+
+  if (!preloader || !progressBar || !percentText) return;
+
+  let progress = 0;
+  const interval = setInterval(() => {
+    progress += Math.floor(Math.random() * 9) + 5;
+    if (progress >= 100) {
+      progress = 100;
+      progressBar.style.width = '100%';
+      percentText.innerText = '100%';
+      clearInterval(interval);
+      setTimeout(() => {
+        preloader.classList.add('fade-out');
+        setTimeout(() => {
+          preloader.style.display = 'none';
+        }, 600);
+      }, 250);
+    } else {
+      progressBar.style.width = `${progress}%`;
+      percentText.innerText = `${progress}%`;
+    }
+  }, 35);
+}
 
 // Sticky Header Scroll Handler
 function setupHeaderScroll() {

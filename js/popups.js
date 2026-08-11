@@ -4,12 +4,147 @@
    ========================================================================== */
 
 function initPopups() {
-  // Show popup automatically after 12 seconds if not already shown in session
+  // Show festive discount offer popup automatically after 4 seconds if not already dismissed in session
   if (!sessionStorage.getItem('kakatiya_popup_dismissed')) {
     setTimeout(() => {
-      openEnquiryPopup();
-    }, 12000);
+      openFestiveOfferPopup();
+    }, 4000);
   }
+}
+
+function openFestiveOfferPopup() {
+  const container = document.getElementById('popupContainer');
+  if (!container) return;
+
+  container.innerHTML = `
+    <div class="modal-overlay active" id="festiveOfferModal" onclick="closeModalOnOverlay(event, 'festiveOfferModal')">
+      <div class="modal-card festive-offer-card" style="max-width: 520px;">
+        <button class="modal-close-btn" onclick="closePopupModal('festiveOfferModal')" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+        
+        <div class="festive-top-badge">
+          <i class="fa-solid fa-gift"></i> EXCLUSIVE FESTIVE OFFER
+        </div>
+        
+        <h2 class="festive-title">
+          GET <span class="highlight-green-wavy">20% OFF</span> YOUR CLEANING!
+        </h2>
+        
+        <p class="festive-subtitle">
+          Book any deep cleaning service today in Hyderabad & get an instant discount on machine floor scrubbing & sanitization!
+        </p>
+
+        <!-- Stats Counter Section (Image 3 Reference) -->
+        <div class="festive-stats-card">
+          <div class="festive-stat-item">
+            <div class="festive-stat-value" id="festiveHomesCount">0+</div>
+            <div class="festive-stat-label">HOMES<br>CLEANED</div>
+          </div>
+          <div class="festive-stat-item border-x">
+            <div class="festive-stat-value">
+              <span id="festiveRatingCount">0.0</span>
+              <i class="fa-solid fa-star star-gold"></i>
+            </div>
+            <div class="festive-stat-label">RATING<br>SCORE</div>
+          </div>
+          <div class="festive-stat-item">
+            <div class="festive-stat-value" id="festiveSatisfiedCount">0%</div>
+            <div class="festive-stat-label">SATISFACTION</div>
+          </div>
+        </div>
+
+        <!-- Coupon Code Card -->
+        <div class="festive-coupon-box" onclick="copyCouponCode('KAKATIYA20SPECIAL')">
+          <div class="coupon-left">
+            <span class="coupon-label">USE COUPON CODE:</span>
+            <strong class="coupon-code">KAKATIYA20SPECIAL</strong>
+          </div>
+          <div class="coupon-badge">20% OFF</div>
+        </div>
+
+        <!-- Action CTAs -->
+        <div class="festive-actions">
+          <button class="btn btn-festive-primary" onclick="applyDiscountAndBook('KAKATIYA20SPECIAL')">
+            <i class="fa-solid fa-wand-magic-sparkles"></i> CLAIM DISCOUNT & BOOK NOW <i class="fa-solid fa-arrow-right"></i>
+          </button>
+          <a href="https://wa.me/919030798839?text=Hi%20Kakatiya%20Cleaning,%20I%20want%20to%20claim%20the%2020%25%20OFF%20Exclusive%20Festive%20Offer%20(Code:%20KAKATIYA20SPECIAL)" 
+             target="_blank" rel="noopener noreferrer" class="btn btn-festive-whatsapp">
+            <i class="fa-brands fa-whatsapp"></i> CLAIM VIA WHATSAPP CHAT
+          </a>
+        </div>
+
+        <div class="festive-footer-note">
+          <i class="fa-solid fa-shield-halved"></i> Verified Eco-Friendly Products & Professional Equipment
+        </div>
+      </div>
+    </div>
+  `;
+
+  document.body.style.overflow = 'hidden';
+  animateModalCounters();
+}
+
+function animateModalCounters() {
+  // 1. Homes count: 0 -> 5,000+
+  const homesEl = document.getElementById('festiveHomesCount');
+  if (homesEl) {
+    let count = 0;
+    const target = 5000;
+    const step = 150;
+    const timer = setInterval(() => {
+      count += step;
+      if (count >= target) {
+        homesEl.innerText = '5,000+';
+        clearInterval(timer);
+      } else {
+        homesEl.innerText = count.toLocaleString() + '+';
+      }
+    }, 25);
+  }
+
+  // 2. Rating count: 0.0 -> 4.9
+  const ratingEl = document.getElementById('festiveRatingCount');
+  if (ratingEl) {
+    let rating = 0;
+    const timer = setInterval(() => {
+      rating += 0.2;
+      if (rating >= 4.9) {
+        ratingEl.innerText = '4.9';
+        clearInterval(timer);
+      } else {
+        ratingEl.innerText = rating.toFixed(1);
+      }
+    }, 45);
+  }
+
+  // 3. Satisfaction count: 0 -> 100%
+  const satEl = document.getElementById('festiveSatisfiedCount');
+  if (satEl) {
+    let sat = 0;
+    const timer = setInterval(() => {
+      sat += 4;
+      if (sat >= 100) {
+        satEl.innerText = '100%';
+        clearInterval(timer);
+      } else {
+        satEl.innerText = sat + '%';
+      }
+    }, 35);
+  }
+}
+
+function copyCouponCode(code) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(code);
+  }
+  showToast(`Coupon code "${code}" copied! Discount ready.`);
+}
+
+function applyDiscountAndBook(code) {
+  closePopupModal('festiveOfferModal');
+  openEnquiryPopup();
+  showToast(`Coupon "${code}" applied! Please submit your details.`);
 }
 
 function openEnquiryPopup() {
@@ -109,6 +244,12 @@ function openCallPopup() {
   document.body.style.overflow = 'hidden';
 }
 
+function closeModalOnOverlay(e, modalId) {
+  if (e.target.id === modalId) {
+    closePopupModal(modalId);
+  }
+}
+
 function closePopupModal(modalId) {
   const modal = document.getElementById(modalId);
   if (modal) {
@@ -129,7 +270,6 @@ function handlePopupFormSubmit(e) {
 
   showToast(`Thank you, ${name}! Your enquiry for ${service} has been received.`);
   
-  // Optionally open WhatsApp with pre-filled message
   setTimeout(() => {
     const waText = `Hi Kakatiya Cleaning Services,%0A%0AMy Name: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AService Requested: ${encodeURIComponent(service)}`;
     window.open(`https://wa.me/919030798839?text=${waText}`, '_blank');
@@ -150,3 +290,4 @@ function showToast(message) {
     toast.classList.remove('active');
   }, 4000);
 }
+

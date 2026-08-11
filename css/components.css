@@ -372,3 +372,613 @@
   }
 }
 
+/* ==========================================================================
+   1. PRELOADER LOADING SCREEN STYLES (Image 4 Reference)
+   ========================================================================== */
+.site-preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, #0a2558 0%, #030d22 75%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s ease;
+}
+
+.site-preloader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.preloader-card {
+  text-align: center;
+  max-width: 440px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preloader-logo-wrapper {
+  background: #ffffff;
+  padding: 16px 28px;
+  border-radius: 20px;
+  box-shadow: 0 0 35px rgba(16, 185, 129, 0.4), 0 15px 35px rgba(0, 0, 0, 0.5);
+  margin-bottom: 24px;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  animation: preloaderPulse 2s infinite alternate ease-in-out;
+}
+
+@keyframes preloaderPulse {
+  0% { transform: scale(1); box-shadow: 0 0 25px rgba(16, 185, 129, 0.3); }
+  100% { transform: scale(1.03); box-shadow: 0 0 45px rgba(16, 185, 129, 0.6); }
+}
+
+.preloader-logo-wrapper img {
+  height: 70px;
+  width: auto;
+  object-fit: contain;
+}
+
+.preloader-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 8px 20px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 24px;
+  backdrop-filter: blur(8px);
+}
+
+.preloader-badge i {
+  color: #10b981;
+}
+
+.preloader-progress-container {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  position: relative;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.preloader-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #10b981 0%, #06b6d4 50%, #3b82f6 100%);
+  border-radius: 10px;
+  transition: width 0.15s ease-out;
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.9);
+}
+
+.preloader-meta {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.preloader-percentage {
+  color: #10b981;
+  font-weight: 800;
+}
+
+/* ==========================================================================
+   2. HERO & FEATURE CARDS LAYOUT (Image 2 Reference)
+   ========================================================================== */
+.hero-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  padding: 50px 0;
+}
+
+.hero-badge-green {
+  background: rgba(16, 185, 129, 0.15) !important;
+  color: #10b981 !important;
+  border: 1px solid rgba(16, 185, 129, 0.35) !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  margin-bottom: 20px;
+}
+
+.hero-green-text {
+  color: #10b981;
+  display: block;
+  font-weight: 800;
+}
+
+.btn-green-glow {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff;
+  font-weight: 800;
+  padding: 14px 28px;
+  border-radius: 50px;
+  box-shadow: 0 8px 25px rgba(16, 185, 129, 0.4);
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+}
+
+.btn-green-glow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(16, 185, 129, 0.6);
+  color: #ffffff;
+}
+
+.hero-feature-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+}
+
+.hero-feature-card {
+  background: #ffffff;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+.hero-feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+}
+
+.feature-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 5px 12px;
+  border-radius: 20px;
+  z-index: 5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.feature-tag.tag-zet {
+  background: #10b981;
+  color: #ffffff;
+}
+
+.feature-tag.tag-sanitized {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+.card-img-holder {
+  height: 160px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.card-img-holder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.hero-feature-card:hover .card-img-holder img {
+  transform: scale(1.08);
+}
+
+.card-footer-title {
+  background: #061533;
+  color: #ffffff;
+  padding: 12px 10px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================================================
+   3. SIDE 4-ICON FLOATING QUICK ACTION BAR (Image 5 Reference)
+   ========================================================================== */
+.floating-quick-sidebar {
+  position: fixed;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 1800;
+}
+
+.side-float-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  text-decoration: none;
+  background: none;
+}
+
+.side-float-btn:hover {
+  transform: scale(1.12) translateX(-4px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.side-btn-gift {
+  background: linear-gradient(135deg, #ff8c00 0%, #f97316 100%);
+}
+
+.side-btn-calendar {
+  background: #061533;
+  color: #10b981 !important;
+  border-color: rgba(16, 185, 129, 0.4) !important;
+}
+
+.side-btn-phone {
+  background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+}
+
+.side-btn-whatsapp {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+}
+
+.btn-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+}
+
+.pulse-badge-tag {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: #ef4444;
+  color: #ffffff;
+  font-size: 0.6rem;
+  font-weight: 800;
+  padding: 2px 5px;
+  border-radius: 10px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+  animation: badgeBounce 1.5s infinite alternate;
+}
+
+@keyframes badgeBounce {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.15); }
+}
+
+.online-dot {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 11px;
+  height: 11px;
+  background: #22c55e;
+  border-radius: 50%;
+  border: 2px solid #ffffff;
+}
+
+.side-btn-tooltip {
+  position: absolute;
+  right: 64px;
+  background: #061533;
+  color: #ffffff;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(10px);
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+.side-float-btn:hover .side-btn-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ==========================================================================
+   4. FESTIVE OFFER POPUP STYLES (Image 3 Reference)
+   ========================================================================== */
+.festive-offer-card {
+  background: linear-gradient(165deg, #061737 0%, #030a1c 100%) !important;
+  border-radius: 28px !important;
+  padding: 36px 28px !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(16, 185, 129, 0.3) !important;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.6) !important;
+  text-align: center;
+  position: relative;
+}
+
+.festive-top-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.festive-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #ffffff !important;
+  margin-bottom: 12px;
+  line-height: 1.25;
+  position: relative;
+}
+
+.highlight-green-wavy {
+  color: #10b981;
+  position: relative;
+  display: inline-block;
+}
+
+.highlight-green-wavy::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 6px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 4'%3E%3Cpath d='M0 2 Q 5 0, 10 2 T 20 2' fill='none' stroke='%2310b981' stroke-width='2'/%3E%3C/svg%3E") repeat-x;
+}
+
+.festive-subtitle {
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin-bottom: 22px;
+}
+
+.festive-stats-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 16px 8px;
+  margin-bottom: 22px;
+  backdrop-filter: blur(8px);
+}
+
+.festive-stat-item {
+  text-align: center;
+  padding: 0 4px;
+}
+
+.festive-stat-item.border-x {
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  border-right: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.festive-stat-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #10b981;
+  margin-bottom: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.star-gold {
+  color: #ffc107;
+  font-size: 1.1rem;
+}
+
+.festive-stat-label {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
+}
+
+.festive-coupon-box {
+  background: rgba(16, 185, 129, 0.08);
+  border: 1.5px dashed #10b981;
+  border-radius: 16px;
+  padding: 14px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 22px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.festive-coupon-box:hover {
+  background: rgba(16, 185, 129, 0.15);
+}
+
+.coupon-left {
+  text-align: left;
+}
+
+.coupon-label {
+  font-size: 0.72rem;
+  color: rgba(255, 255, 255, 0.7);
+  display: block;
+  font-weight: 600;
+}
+
+.coupon-code {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 0.08em;
+  font-family: monospace;
+}
+
+.coupon-badge {
+  background: #10b981;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+}
+
+.festive-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.btn-festive-primary {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #ffffff !important;
+  font-weight: 800;
+  font-size: 1.05rem;
+  padding: 15px;
+  border-radius: 14px;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 10px 25px rgba(16, 185, 129, 0.4);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.btn-festive-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 32px rgba(16, 185, 129, 0.6);
+}
+
+.btn-festive-whatsapp {
+  background: rgba(255, 255, 255, 0.07);
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 14px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  width: 100%;
+}
+
+.btn-festive-whatsapp:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.festive-footer-note {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-weight: 500;
+}
+
+.festive-footer-note i {
+  color: #10b981;
+}
+
+/* ==========================================================================
+   5. MOBILE RESPONSIVE MEDIA QUERIES
+   ========================================================================== */
+@media (max-width: 992px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 30px;
+    padding: 30px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .floating-quick-sidebar {
+    right: 10px;
+    gap: 10px;
+  }
+  .side-float-btn {
+    width: 44px;
+    height: 44px;
+  }
+  .btn-icon-wrapper {
+    font-size: 1.1rem;
+  }
+  .hero-feature-cards {
+    grid-template-columns: 1fr;
+  }
+  .festive-offer-card {
+    padding: 26px 16px !important;
+  }
+  .festive-title {
+    font-size: 1.45rem;
+  }
+  .festive-stat-value {
+    font-size: 1.25rem;
+  }
+}
+
+
