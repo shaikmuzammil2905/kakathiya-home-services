@@ -1,6 +1,6 @@
 /* ==========================================================================
    KAKATIYA PROFESSIONAL CLEANING SERVICES — SERVICES DATA & CONTROLLER
-   All 15 Services defined with full detail & interactive modal renderer
+   100% Non-Pictorial Representation with Attractive Content & Scroll Animation
    ========================================================================== */
 
 const SERVICES_DATA = [
@@ -294,27 +294,78 @@ function renderServicesGrid(filterCategory = 'all') {
     ? SERVICES_DATA 
     : SERVICES_DATA.filter(s => s.category === filterCategory);
 
-  container.innerHTML = filtered.map(service => `
-    <div class="service-card" data-id="${service.id}" data-category="${service.category}">
-      <div class="service-img-wrapper">
-        <img src="${service.img}" alt="${service.title}" loading="lazy" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=600&q=80'" />
-        <div class="service-icon-badge">
-          <i class="fa-solid ${service.icon}"></i>
+  // 100% Non-Pictorial Representation with Attractive Content & Scroll Animation
+  container.innerHTML = filtered.map((service, index) => {
+    const feature1 = service.inclusions[0] || 'Verified Experienced Team';
+    const feature2 = service.inclusions[1] || 'Eco-Friendly Safe Cleaning Solvents';
+
+    return `
+      <div class="service-card non-pictorial-card reveal-on-scroll" 
+           data-id="${service.id}" 
+           data-category="${service.category}"
+           style="transition-delay: ${(index % 4) * 0.12}s;">
+        
+        <div class="service-card-top">
+          <div class="service-icon-box icon-gradient-${service.category}">
+            <i class="fa-solid ${service.icon}"></i>
+          </div>
+          <div class="service-meta-badge">
+            <i class="fa-regular fa-clock"></i> ${service.duration}
+          </div>
+        </div>
+
+        <div class="service-content">
+          <div class="service-category-tag tag-${service.category}">${service.category.toUpperCase()} CLEANING</div>
+          <h3 class="service-title">${service.title}</h3>
+          <p class="service-desc">${service.shortDesc}</p>
+          
+          <div class="service-highlights-list">
+            <div class="highlight-item">
+              <i class="fa-solid fa-circle-check"></i> <span>${feature1}</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-circle-check"></i> <span>${feature2}</span>
+            </div>
+          </div>
+
+          <div class="service-card-actions">
+            <button class="service-btn btn-details" onclick="openServiceModal('${service.id}')">
+              View Details <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <a href="https://wa.me/919030798839?text=Hi%20Kakatiya%20Cleaning,%20I%20want%20to%20book%20${encodeURIComponent(service.title)}" 
+               target="_blank" rel="noopener noreferrer" class="btn-quick-wa-chip" title="Book via WhatsApp">
+              <i class="fa-brands fa-whatsapp"></i> Book
+            </a>
+          </div>
         </div>
       </div>
-      <div class="service-content">
-        <h3 class="service-title">${service.title}</h3>
-        <p class="service-desc">${service.shortDesc}</p>
-        <button class="service-btn" onclick="openServiceModal('${service.id}')">
-          View Details <i class="fa-solid fa-arrow-right"></i>
-        </button>
-      </div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
+
+  // Attach IntersectionObserver for scroll reveal one by one
+  triggerServicesScrollReveal();
+}
+
+function triggerServicesScrollReveal() {
+  const cards = document.querySelectorAll('.service-card.reveal-on-scroll');
+  if (!cards.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach((card) => {
+    observer.observe(card);
+  });
 }
 
 function setupCategoryTabs() {
-  const tabs = document.querySelectorAll('.tab-btn');
+  const tabs = document.querySelectorAll('.tab-btn[data-category]');
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
       tabs.forEach(t => t.classList.remove('active'));
@@ -338,13 +389,13 @@ function openServiceModal(serviceId) {
         <button class="modal-close-btn" onclick="closeServiceModal()">
           <i class="fa-solid fa-xmark"></i>
         </button>
-        <div class="service-modal-hero">
-          <img src="${service.img}" alt="${service.title}" />
-          <div class="service-modal-hero-overlay">
-            <div>
-              <span class="section-tag" style="background: rgba(255,255,255,0.2); color:#fff;">${service.category.toUpperCase()} CLEANING</span>
-              <h2>${service.title}</h2>
-            </div>
+        <div class="service-modal-header-accent icon-gradient-${service.category}">
+          <div class="service-modal-icon-lg">
+            <i class="fa-solid ${service.icon}"></i>
+          </div>
+          <div>
+            <span class="section-tag" style="background: rgba(255,255,255,0.2); color:#fff; margin-bottom:4px;">${service.category.toUpperCase()} CLEANING</span>
+            <h2 style="color:#fff; font-size:1.75rem;">${service.title}</h2>
           </div>
         </div>
         <div class="service-modal-body">
@@ -398,16 +449,3 @@ function closeServiceModal() {
   }
   document.body.style.overflow = '';
 }
-
-function closeModalOnOverlay(e, modalId) {
-  if (e.target.id === modalId) {
-    closeServiceModal();
-  }
-}
-
-// Global escape key handler
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') {
-    closeServiceModal();
-  }
-});
