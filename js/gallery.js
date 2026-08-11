@@ -1,16 +1,16 @@
 /* ==========================================================================
    KAKATIYA PROFESSIONAL CLEANING SERVICES — GALLERY & VIEW OUR WORKS
-   Full HD Photo & Video Portfolio Renderer with Specific Naming & Categories
+   Full HD Photo & Video Portfolio Renderer with Exact Image-Matched Titles
    ========================================================================== */
 
 const GALLERY_ITEMS = [
-  // --- HD VIDEO DEMONSTRATIONS (8 Videos) ---
+  // --- HD VIDEO DEMONSTRATIONS (8 Videos matched to actual thumbnail images) ---
   {
     id: 'v1',
     type: 'video',
     category: 'sofa',
-    categoryName: 'Sofa & Upholstery',
-    title: 'Fabric Sofa Foam Scrubbing & Extraction Video',
+    categoryName: 'Furniture & Dining',
+    title: 'Cafeteria & Dining Hall Table Cleaning Video',
     videoSrc: 'assets/videos/work-video-1.mp4',
     poster: 'assets/images/gallery/work-11.png',
     badge: 'HD VIDEO'
@@ -18,9 +18,9 @@ const GALLERY_ITEMS = [
   {
     id: 'v2',
     type: 'video',
-    category: 'floor',
-    categoryName: 'Floor Scrubbing',
-    title: 'Single-Disc Rotary Floor Machine Scrubbing Video',
+    category: 'home',
+    categoryName: 'Home Interior',
+    title: 'Bedroom Modular Wardrobe & Cabinet Cleaning Video',
     videoSrc: 'assets/videos/work-video-2.mp4',
     poster: 'assets/images/gallery/work-12.png',
     badge: 'HD VIDEO'
@@ -28,9 +28,9 @@ const GALLERY_ITEMS = [
   {
     id: 'v3',
     type: 'video',
-    category: 'kitchen',
-    categoryName: 'Kitchen Cleaning',
-    title: 'Modular Kitchen Tile Degreasing & Steam Clean Video',
+    category: 'commercial',
+    categoryName: 'Commercial Office',
+    title: 'Corporate Office Corridor & Door Sanitization Video',
     videoSrc: 'assets/videos/work-video-3.mp4',
     poster: 'assets/images/gallery/work-9.png',
     badge: 'HD VIDEO'
@@ -38,9 +38,9 @@ const GALLERY_ITEMS = [
   {
     id: 'v4',
     type: 'video',
-    category: 'bathroom',
-    categoryName: 'Bathroom Cleaning',
-    title: 'Bathroom Descaling & Limescale Removal Video',
+    category: 'commercial',
+    categoryName: 'Commercial Office',
+    title: 'Corporate Office Reception & Lobby Deep Clean Video',
     videoSrc: 'assets/videos/work-video-4.mp4',
     poster: 'assets/images/gallery/work-10.png',
     badge: 'HD VIDEO'
@@ -48,9 +48,9 @@ const GALLERY_ITEMS = [
   {
     id: 'v5',
     type: 'video',
-    category: 'home',
-    categoryName: 'Home Deep Clean',
-    title: 'Villa Living Room Deep Cleaning Demonstration Video',
+    category: 'floor',
+    categoryName: 'Machine Scrubbing',
+    title: 'Professional Cleaning Scrubber & Machine Setup Video',
     videoSrc: 'assets/videos/work-video-5.mp4',
     poster: 'assets/images/gallery/work-8.png',
     badge: 'HD VIDEO'
@@ -58,9 +58,9 @@ const GALLERY_ITEMS = [
   {
     id: 'v6',
     type: 'video',
-    category: 'sofa',
-    categoryName: 'Office & Carpet',
-    title: 'Corporate Office Carpet Shampoo Extraction Video',
+    category: 'bathroom',
+    categoryName: 'Bathroom Cleaning',
+    title: 'Bathroom Toilet Bowl & Tile Descaling Video',
     videoSrc: 'assets/videos/work-video-6.mp4',
     poster: 'assets/images/gallery/work-21.png',
     badge: 'HD VIDEO'
@@ -69,8 +69,8 @@ const GALLERY_ITEMS = [
     id: 'v7',
     type: 'video',
     category: 'commercial',
-    categoryName: 'Post Construction',
-    title: 'Post-Construction Tile Dust & Paint Scrubbing Video',
+    categoryName: 'Commercial Space',
+    title: 'Commercial Showroom & Counter Deep Clean Video',
     videoSrc: 'assets/videos/work-video-7.mp4',
     poster: 'assets/images/gallery/work-17.png',
     badge: 'HD VIDEO'
@@ -78,43 +78,43 @@ const GALLERY_ITEMS = [
   {
     id: 'v8',
     type: 'video',
-    category: 'home',
-    categoryName: 'Balcony & Windows',
-    title: 'Balcony & Exterior Window Frame Jet Wash Video',
+    category: 'commercial',
+    categoryName: 'Workstation & Carpet',
+    title: 'IT Office Workstation & Chair Vacuuming Video',
     videoSrc: 'assets/videos/work-video-8.mp4',
     poster: 'assets/images/gallery/work-16.png',
     badge: 'HD VIDEO'
   },
 
-  // --- HD WORK PHOTOS (28 Images) ---
-  { id: 8, type: 'photo', category: 'home', categoryName: 'Home Deep Clean', title: 'Villa Living Room Deep Cleaning', img: 'assets/images/gallery/work-8.png' },
-  { id: 9, type: 'photo', category: 'kitchen', categoryName: 'Kitchen Cleaning', title: 'Modular Kitchen Tile Degreasing & Polish', img: 'assets/images/gallery/work-9.png' },
-  { id: 10, type: 'photo', category: 'bathroom', categoryName: 'Bathroom Cleaning', title: 'Bathroom Descaling & Tile Whitening', img: 'assets/images/gallery/work-10.png' },
-  { id: 11, type: 'photo', category: 'sofa', categoryName: 'Sofa & Upholstery', title: 'L-Shaped Fabric Sofa Shampooing & Extraction', img: 'assets/images/gallery/work-11.png' },
-  { id: 12, type: 'photo', category: 'floor', categoryName: 'Floor Scrubbing', title: 'Marble Floor Machine Buffing & Rotary Scrubbing', img: 'assets/images/gallery/work-12.png' },
-  { id: 13, type: 'photo', category: 'home', categoryName: 'Home Deep Clean', title: 'Master Bedroom Deep Dusting & Sanitization', img: 'assets/images/gallery/work-13.png' },
-  { id: 14, type: 'photo', category: 'kitchen', categoryName: 'Kitchen Cleaning', title: 'Kitchen Chimney & Stove Hood Degreasing', img: 'assets/images/gallery/work-14.png' },
-  { id: 15, type: 'photo', category: 'commercial', categoryName: 'Commercial Cleaning', title: 'Corporate Workstation Disinfection & Cleaning', img: 'assets/images/gallery/work-15.png' },
-  { id: 16, type: 'photo', category: 'home', categoryName: 'Balcony & Windows', title: 'Balcony Glass Squeegee & Frame Cleaning', img: 'assets/images/gallery/work-16.png' },
-  { id: 17, type: 'photo', category: 'commercial', categoryName: 'Post Construction', title: 'Post-Renovation Tile Cement Splatter Removal', img: 'assets/images/gallery/work-17.png' },
-  { id: 18, type: 'photo', category: 'bathroom', categoryName: 'Bathroom Cleaning', title: 'Luxury Bathroom Glass & Chrome Fitting Polish', img: 'assets/images/gallery/work-18.png' },
-  { id: 19, type: 'photo', category: 'sofa', categoryName: 'Sofa & Upholstery', title: 'Dining Table Chair Fabric Foam Shampooing', img: 'assets/images/gallery/work-19.png' },
-  { id: 20, type: 'photo', category: 'floor', categoryName: 'Floor Scrubbing', title: 'Residential Villa Full Floor Machine Scrubbing', img: 'assets/images/gallery/work-20.png' },
-  { id: 21, type: 'photo', category: 'sofa', categoryName: 'Office & Carpet', title: 'Office Carpet Tile Deep Steam Extraction', img: 'assets/images/gallery/work-21.png' },
-  { id: 22, type: 'photo', category: 'home', categoryName: 'Home Deep Clean', title: 'High Ceiling Fan & Light Fixture Dusting', img: 'assets/images/gallery/work-22.png' },
-  { id: 23, type: 'photo', category: 'kitchen', categoryName: 'Kitchen Cleaning', title: 'Apartment Move-In Kitchen Sanitization', img: 'assets/images/gallery/work-23.png' },
-  { id: 24, type: 'photo', category: 'commercial', categoryName: 'Commercial Cleaning', title: 'Commercial Showroom Floor Machine Buffing', img: 'assets/images/gallery/work-24.png' },
-  { id: 26, type: 'photo', category: 'home', categoryName: 'Home Deep Clean', title: '3BHK Villa Complete Deep Clean Setup', img: 'assets/images/gallery/work-26.png' },
-  { id: 28, type: 'photo', category: 'kitchen', categoryName: 'Kitchen Cleaning', title: 'Kitchen Countertop & Backsplash Tile Polish', img: 'assets/images/gallery/work-28.png' },
-  { id: 30, type: 'photo', category: 'bathroom', categoryName: 'Bathroom Cleaning', title: 'Bathroom Tile Grout Whitening & Sanitization', img: 'assets/images/gallery/work-30.png' },
-  { id: 32, type: 'photo', category: 'sofa', categoryName: 'Sofa & Upholstery', title: '7-Seater Sectional Sofa Deep Foam Cleaning', img: 'assets/images/gallery/work-32.png' },
-  { id: 34, type: 'photo', category: 'floor', categoryName: 'Floor Scrubbing', title: 'Marble Floor Heavy Duty Single-Disc Scrubbing', img: 'assets/images/gallery/work-34.png' },
-  { id: 36, type: 'photo', category: 'commercial', categoryName: 'Commercial Cleaning', title: 'Office Reception & Lobby Floor Deep Shine', img: 'assets/images/gallery/work-36.png' },
-  { id: 38, type: 'photo', category: 'home', categoryName: 'Balcony & Windows', title: 'Window Glass & Metal Mesh Deep Vacuum Cleaning', img: 'assets/images/gallery/work-38.png' },
-  { id: 40, type: 'photo', category: 'commercial', categoryName: 'Post Construction', title: 'Post-Construction Floor Paint Splatter Scrubbing', img: 'assets/images/gallery/work-40.png' },
-  { id: 42, type: 'photo', category: 'commercial', categoryName: 'Commercial Cleaning', title: 'Healthcare Clinic UV & Fog Decontamination', img: 'assets/images/gallery/work-42.png' },
-  { id: 44, type: 'photo', category: 'kitchen', categoryName: 'Kitchen Cleaning', title: 'Commercial Restaurant Kitchen Deep Degreasing', img: 'assets/images/gallery/work-44.png' },
-  { id: 46, type: 'photo', category: 'home', categoryName: 'Home Deep Clean', title: 'Luxury Apartment Deep Clean Completion', img: 'assets/images/gallery/work-46.png' }
+  // --- HD WORK PHOTOS (28 Images precisely matched to visual content) ---
+  { id: 8, type: 'photo', category: 'floor', categoryName: 'Machine Scrubbing', title: 'Professional Floor Scrubber & Vacuum Machine Setup', img: 'assets/images/gallery/work-8.png' },
+  { id: 9, type: 'photo', category: 'commercial', categoryName: 'Commercial Office', title: 'Corporate Office Corridor & Door Sanitization', img: 'assets/images/gallery/work-9.png' },
+  { id: 10, type: 'photo', category: 'commercial', categoryName: 'Commercial Office', title: 'Corporate Office Reception & Lobby Deep Clean', img: 'assets/images/gallery/work-10.png' },
+  { id: 11, type: 'photo', category: 'sofa', categoryName: 'Furniture & Dining', title: 'Cafeteria & Dining Table Furniture Cleaning', img: 'assets/images/gallery/work-11.png' },
+  { id: 12, type: 'photo', category: 'home', categoryName: 'Home Interior', title: 'Modular Bedroom Wardrobe & Cabinet Deep Clean', img: 'assets/images/gallery/work-12.png' },
+  { id: 13, type: 'photo', category: 'commercial', categoryName: 'Commercial Office', title: 'Commercial Office Glass Partition & Workstation Clean', img: 'assets/images/gallery/work-13.png' },
+  { id: 14, type: 'photo', category: 'bathroom', categoryName: 'Bathroom Cleaning', title: 'Bathroom Glass Shower Enclosure & Tile Descaling', img: 'assets/images/gallery/work-14.png' },
+  { id: 15, type: 'photo', category: 'floor', categoryName: 'Floor Scrubbing', title: 'Commercial Hall Tile Floor Scrubbing & Polish', img: 'assets/images/gallery/work-15.png' },
+  { id: 16, type: 'photo', category: 'commercial', categoryName: 'Workstation & Office', title: 'IT Park Office Workstation & Chair Vacuuming', img: 'assets/images/gallery/work-16.png' },
+  { id: 17, type: 'photo', category: 'commercial', categoryName: 'Commercial Space', title: 'Retail Showroom Display Counter & Hall Deep Clean', img: 'assets/images/gallery/work-17.png' },
+  { id: 18, type: 'photo', category: 'home', categoryName: 'Home Exterior', title: 'Independent Villa Exterior & Balcony Deep Clean', img: 'assets/images/gallery/work-18.png' },
+  { id: 19, type: 'photo', category: 'commercial', categoryName: 'Commercial Office', title: 'Office Corridor & Fire Safety Door Surface Wipedown', img: 'assets/images/gallery/work-19.png' },
+  { id: 20, type: 'photo', category: 'commercial', categoryName: 'Glass Cleaning', title: 'High Elevation Glass Facade Squeegee Cleaning', img: 'assets/images/gallery/work-20.png' },
+  { id: 21, type: 'photo', category: 'bathroom', categoryName: 'Bathroom Cleaning', title: 'Bathroom Toilet Bowl & Wall Tile Sanitization', img: 'assets/images/gallery/work-21.png' },
+  { id: 22, type: 'photo', category: 'bathroom', categoryName: 'Floor Scrubbing', title: 'Bathroom Tile Machine Scrubber Cleaning', img: 'assets/images/gallery/work-22.png' },
+  { id: 23, type: 'photo', category: 'sofa', categoryName: 'Carpet Vacuuming', title: 'Office Cabin Carpet Vacuum Extraction', img: 'assets/images/gallery/work-23.png' },
+  { id: 24, type: 'photo', category: 'commercial', categoryName: 'Commercial Office', title: 'Commercial Office Corridor Floor Tile Shine', img: 'assets/images/gallery/work-24.png' },
+  { id: 26, type: 'photo', category: 'sofa', categoryName: 'Carpet Vacuuming', title: 'Commercial Office & Lounge Carpet Extraction', img: 'assets/images/gallery/work-26.png' },
+  { id: 28, type: 'photo', category: 'sofa', categoryName: 'Carpet Vacuuming', title: 'Retail Store Carpet Vacuuming & Deep Clean', img: 'assets/images/gallery/work-28.png' },
+  { id: 30, type: 'photo', category: 'bathroom', categoryName: 'Floor Scrubbing', title: 'Restroom Tile Single-Disc Rotary Machine Scrubbing', img: 'assets/images/gallery/work-30.png' },
+  { id: 32, type: 'photo', category: 'home', categoryName: 'Air Duct & Vent', title: 'Air Duct Vent & Wall Dust Vacuum Extraction', img: 'assets/images/gallery/work-32.png' },
+  { id: 34, type: 'photo', category: 'home', categoryName: 'Glass Cleaning', title: 'Exterior Window Glass Squeegee Polish', img: 'assets/images/gallery/work-34.png' },
+  { id: 36, type: 'photo', category: 'sofa', categoryName: 'Carpet Vacuuming', title: 'Master Bedroom Carpet & Furniture Deep Vacuuming', img: 'assets/images/gallery/work-36.png' },
+  { id: 38, type: 'photo', category: 'kitchen', categoryName: 'Kitchen Degreasing', title: 'Modular Kitchen Chimney & Stove Hood Degreasing', img: 'assets/images/gallery/work-38.png' },
+  { id: 40, type: 'photo', category: 'home', categoryName: 'Floor Scrubbing', title: 'Luxury Villa Living Room Floor Deep Scrubbing', img: 'assets/images/gallery/work-40.png' },
+  { id: 42, type: 'photo', category: 'kitchen', categoryName: 'Kitchen Cleaning', title: 'Kitchen Stovetop & Platform Counter Scrubbing', img: 'assets/images/gallery/work-42.png' },
+  { id: 44, type: 'photo', category: 'bathroom', categoryName: 'Bathroom Cleaning', title: 'Commercial Restroom Washbasin & Fitting Sanitization', img: 'assets/images/gallery/work-44.png' },
+  { id: 46, type: 'photo', category: 'sofa', categoryName: 'Sofa Shampooing', title: 'Fabric Sofa Cushion Shampooing & Vacuum Extraction', img: 'assets/images/gallery/work-46.png' }
 ];
 
 let currentLightboxIndex = 0;
