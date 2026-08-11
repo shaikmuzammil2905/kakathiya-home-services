@@ -1841,6 +1841,30 @@ textarea.form-control {
     gap: 12px;
     text-align: center;
   }
+  .site-logo img {
+    height: 44px;
+  }
+  .header-container {
+    height: 64px;
+  }
+  .header-actions .btn {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+  }
+  .hero-badge {
+    font-size: 0.76rem;
+    padding: 6px 14px;
+    margin-bottom: 16px;
+  }
+  .works-hero-section {
+    padding: 70px 0 50px 0;
+  }
+  .works-hero-section h1 {
+    font-size: 1.75rem !important;
+  }
+  .gallery-card-title {
+    font-size: 0.86rem;
+  }
   .floating-actions {
     bottom: 16px;
     right: 16px;
