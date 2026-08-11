@@ -50,6 +50,9 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -59,7 +62,10 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden !important;
+  position: relative;
 }
 
 img, video {
@@ -130,6 +136,7 @@ h1, h2, h3, h4, h5, h6 {
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 20px;
+  box-sizing: border-box;
 }
 
 /* --- TOP BAR (Matching UI Reference) --- */
@@ -1695,7 +1702,10 @@ textarea.form-control {
   .nav-menu {
     position: fixed;
     top: 70px;
-    left: -100%;
+    left: 0;
+    transform: translateX(-100%);
+    visibility: hidden;
+    pointer-events: none;
     width: 100%;
     height: calc(100vh - 70px);
     background: #ffffff;
@@ -1703,12 +1713,15 @@ textarea.form-control {
     justify-content: flex-start;
     padding: 30px 24px;
     gap: 20px;
-    transition: var(--transition-normal);
+    transition: transform 0.3s ease, visibility 0.3s ease;
     box-shadow: 0 10px 30px rgba(0,0,0,0.15);
     overflow-y: auto;
+    z-index: 1000;
   }
   .nav-menu.active {
-    left: 0;
+    transform: translateX(0);
+    visibility: visible;
+    pointer-events: auto;
   }
   .nav-link {
     font-size: 1.1rem;

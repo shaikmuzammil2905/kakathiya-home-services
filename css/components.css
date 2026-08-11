@@ -1065,8 +1065,11 @@
 
 @media (max-width: 600px) {
   .floating-quick-sidebar {
-    right: 10px;
-    gap: 10px;
+    right: 10px !important;
+    gap: 10px !important;
+  }
+  .side-btn-tooltip {
+    display: none !important;
   }
   .side-float-btn {
     width: 44px;
