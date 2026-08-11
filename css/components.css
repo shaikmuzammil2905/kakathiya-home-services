@@ -609,17 +609,18 @@
 }
 
 /* ==========================================================================
-   3. SIDE 4-ICON FLOATING QUICK ACTION BAR (Image 5 Reference)
+   3. SIDE 4-ICON FLOATING QUICK ACTION BAR (Bottom-Right Position)
    ========================================================================== */
 .floating-quick-sidebar {
-  position: fixed;
-  right: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-  z-index: 1800;
+  position: fixed !important;
+  right: 20px !important;
+  bottom: 24px !important;
+  top: auto !important;
+  transform: none !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  z-index: 1800 !important;
 }
 
 .side-float-btn {
@@ -631,27 +632,55 @@
   justify-content: center;
   position: relative;
   color: #ffffff;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  border: 2px solid rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.5);
   cursor: pointer;
   text-decoration: none;
   background: none;
 }
 
 .side-float-btn:hover {
-  transform: scale(1.12) translateX(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  transform: scale(1.14) translateX(-4px);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4);
 }
 
 .side-btn-gift {
   background: linear-gradient(135deg, #ff8c00 0%, #f97316 100%);
 }
 
-.side-btn-calendar {
-  background: #061533;
-  color: #10b981 !important;
-  border-color: rgba(16, 185, 129, 0.4) !important;
+.side-btn-gift.pulse-on-scroll {
+  animation: giftAttention 1.2s ease-in-out infinite alternate;
+}
+
+@keyframes giftAttention {
+  0% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 140, 0, 0.5); }
+  100% { transform: scale(1.18) translateY(-4px); box-shadow: 0 0 30px rgba(255, 140, 0, 0.9); }
+}
+
+/* 2nd Floating Circle Button: Kakatiya Logo */
+.side-btn-logo {
+  background: #ffffff !important;
+  border: 2.5px solid #061533 !important;
+  box-shadow: 0 8px 22px rgba(6, 21, 51, 0.35) !important;
+  padding: 5px !important;
+  overflow: hidden !important;
+}
+
+.logo-circle-wrapper {
+  width: 100% !important;
+  height: 100% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.side-logo-img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  display: block !important;
+  border-radius: 50% !important;
 }
 
 .side-btn-phone {

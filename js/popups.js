@@ -4,12 +4,35 @@
    ========================================================================== */
 
 function initPopups() {
-  // Show festive discount offer popup automatically after 4 seconds if not already dismissed in session
-  if (!sessionStorage.getItem('kakatiya_popup_dismissed')) {
-    setTimeout(() => {
+  let hasTriggeredOnScroll = false;
+
+  window.addEventListener('scroll', () => {
+    // Add pulsing attention effect to side gift button on scroll
+    const giftBtn = document.querySelector('.side-btn-gift');
+    if (giftBtn) {
+      if (window.scrollY > 150) {
+        giftBtn.classList.add('pulse-on-scroll');
+      } else {
+        giftBtn.classList.remove('pulse-on-scroll');
+      }
+    }
+
+    // Trigger Festive Offer Gift popup automatically after user scrolls down past 300px
+    if (!hasTriggeredOnScroll && window.scrollY > 300 && !sessionStorage.getItem('kakatiya_popup_dismissed')) {
+      hasTriggeredOnScroll = true;
+      setTimeout(() => {
+        openFestiveOfferPopup();
+      }, 400);
+    }
+  });
+
+  // Fallback timer if user remains at top of page after 7 seconds
+  setTimeout(() => {
+    if (!hasTriggeredOnScroll && !sessionStorage.getItem('kakatiya_popup_dismissed')) {
+      hasTriggeredOnScroll = true;
       openFestiveOfferPopup();
-    }, 4000);
-  }
+    }
+  }, 7000);
 }
 
 function openFestiveOfferPopup() {
