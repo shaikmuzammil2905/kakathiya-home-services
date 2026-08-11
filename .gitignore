@@ -1,0 +1,22 @@
+# Dependencies & Node
+node_modules/
+
+# Environment & Credentials
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# IDE / System
+.gemini/
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+
+# Temp / Build
+dist/
+build/
+tmp/

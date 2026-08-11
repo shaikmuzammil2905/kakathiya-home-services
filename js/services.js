@@ -281,18 +281,49 @@ const SERVICES_DATA = [
   }
 ];
 
-function initServices() {
-  renderServicesGrid('all');
+let activeServicesList = [...SERVICES_DATA];
+let currentServicesFilter = 'all';
+
+async function initServices() {
+  await loadServicesFromSupabase();
   setupCategoryTabs();
+  
+  if (typeof subscribeToTableChanges === 'function') {
+    subscribeToTableChanges('services', async () => {
+      await loadServicesFromSupabase();
+    });
+  }
+}
+
+async function loadServicesFromSupabase() {
+  if (typeof getPublicServices === 'function') {
+    const remoteData = await getPublicServices();
+    if (remoteData && Array.isArray(remoteData)) {
+      activeServicesList = remoteData.map(s => ({
+        id: s.id,
+        title: s.title,
+        category: s.category,
+        icon: s.icon || 'fa-broom',
+        shortDesc: s.short_desc || s.shortDesc || '',
+        fullDesc: s.full_desc || s.fullDesc || '',
+        img: s.img || '',
+        inclusions: Array.isArray(s.inclusions) ? s.inclusions : (typeof s.inclusions === 'string' ? JSON.parse(s.inclusions) : []),
+        duration: s.duration || '',
+        recommendedFor: s.recommended_for || s.recommendedFor || ''
+      }));
+    }
+  }
+  renderServicesGrid(currentServicesFilter);
 }
 
 function renderServicesGrid(filterCategory = 'all') {
+  currentServicesFilter = filterCategory;
   const container = document.getElementById('servicesGrid');
   if (!container) return;
 
   const filtered = filterCategory === 'all' 
-    ? SERVICES_DATA 
-    : SERVICES_DATA.filter(s => s.category === filterCategory);
+    ? activeServicesList 
+    : activeServicesList.filter(s => s.category === filterCategory);
 
   // 100% Non-Pictorial Representation with Attractive Content & Scroll Animation
   container.innerHTML = filtered.map((service, index) => {
@@ -377,7 +408,7 @@ function setupCategoryTabs() {
 }
 
 function openServiceModal(serviceId) {
-  const service = SERVICES_DATA.find(s => s.id === serviceId);
+  const service = activeServicesList.find(s => s.id === serviceId) || SERVICES_DATA.find(s => s.id === serviceId);
   if (!service) return;
 
   const modalContainer = document.getElementById('serviceModalContainer');

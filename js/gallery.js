@@ -117,27 +117,56 @@ const GALLERY_ITEMS = [
   { id: 46, type: 'photo', category: 'sofa', categoryName: 'Sofa Shampooing', title: 'Fabric Sofa Cushion Shampooing & Vacuum Extraction', img: 'assets/images/gallery/work-46.png' }
 ];
 
+let activeGalleryList = [...GALLERY_ITEMS];
+let currentGalleryFilter = 'all';
 let currentLightboxIndex = 0;
-let currentFilteredGallery = [...GALLERY_ITEMS];
-let currentPhotosOnly = GALLERY_ITEMS.filter(g => g.type === 'photo');
+let currentFilteredGallery = [...activeGalleryList];
+let currentPhotosOnly = activeGalleryList.filter(g => g.type === 'photo');
 
-function initGallery() {
-  renderGalleryGrid('all');
+async function initGallery() {
+  await loadGalleryFromSupabase();
   setupGalleryCategoryTabs();
+
+  if (typeof subscribeToTableChanges === 'function') {
+    subscribeToTableChanges('gallery', async () => {
+      await loadGalleryFromSupabase();
+    });
+  }
+}
+
+async function loadGalleryFromSupabase() {
+  if (typeof getPublicGallery === 'function') {
+    const remoteData = await getPublicGallery();
+    if (remoteData && Array.isArray(remoteData)) {
+      activeGalleryList = remoteData.map(g => ({
+        id: g.id,
+        type: g.type || 'photo',
+        category: g.category,
+        categoryName: g.category_name || g.categoryName || '',
+        title: g.title,
+        videoSrc: g.video_src || g.videoSrc || '',
+        poster: g.poster || g.img || '',
+        img: g.img || g.poster || '',
+        badge: g.badge || (g.type === 'video' ? 'HD VIDEO' : 'HD PHOTO')
+      }));
+    }
+  }
+  renderGalleryGrid(currentGalleryFilter);
 }
 
 function renderGalleryGrid(filter = 'all') {
+  currentGalleryFilter = filter;
   const container = document.getElementById('galleryGrid');
   if (!container) return;
 
   if (filter === 'all') {
-    currentFilteredGallery = [...GALLERY_ITEMS];
+    currentFilteredGallery = [...activeGalleryList];
   } else if (filter === 'videos') {
-    currentFilteredGallery = GALLERY_ITEMS.filter(g => g.type === 'video');
+    currentFilteredGallery = activeGalleryList.filter(g => g.type === 'video');
   } else if (filter === 'photos') {
-    currentFilteredGallery = GALLERY_ITEMS.filter(g => g.type === 'photo');
+    currentFilteredGallery = activeGalleryList.filter(g => g.type === 'photo');
   } else {
-    currentFilteredGallery = GALLERY_ITEMS.filter(g => g.category === filter);
+    currentFilteredGallery = activeGalleryList.filter(g => g.category === filter);
   }
 
   currentPhotosOnly = currentFilteredGallery.filter(g => g.type === 'photo');
