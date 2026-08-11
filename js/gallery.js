@@ -1,6 +1,6 @@
 /* ==========================================================================
    KAKATIYA PROFESSIONAL CLEANING SERVICES — GALLERY & VIEW OUR WORKS
-   Full HD Photo & Video Portfolio Renderer
+   Full HD Photo & Video Portfolio Renderer with Specific Naming & Categories
    ========================================================================== */
 
 const GALLERY_ITEMS = [
@@ -9,6 +9,7 @@ const GALLERY_ITEMS = [
     id: 'v1',
     type: 'video',
     category: 'sofa',
+    categoryName: 'Sofa & Upholstery',
     title: 'Fabric Sofa Foam Scrubbing & Extraction Video',
     videoSrc: 'assets/videos/work-video-1.mp4',
     poster: 'assets/images/gallery/work-11.png',
@@ -18,6 +19,7 @@ const GALLERY_ITEMS = [
     id: 'v2',
     type: 'video',
     category: 'floor',
+    categoryName: 'Floor Scrubbing',
     title: 'Single-Disc Rotary Floor Machine Scrubbing Video',
     videoSrc: 'assets/videos/work-video-2.mp4',
     poster: 'assets/images/gallery/work-12.png',
@@ -27,6 +29,7 @@ const GALLERY_ITEMS = [
     id: 'v3',
     type: 'video',
     category: 'kitchen',
+    categoryName: 'Kitchen Cleaning',
     title: 'Modular Kitchen Tile Degreasing & Steam Clean Video',
     videoSrc: 'assets/videos/work-video-3.mp4',
     poster: 'assets/images/gallery/work-9.png',
@@ -36,6 +39,7 @@ const GALLERY_ITEMS = [
     id: 'v4',
     type: 'video',
     category: 'bathroom',
+    categoryName: 'Bathroom Cleaning',
     title: 'Bathroom Descaling & Limescale Removal Video',
     videoSrc: 'assets/videos/work-video-4.mp4',
     poster: 'assets/images/gallery/work-10.png',
@@ -45,6 +49,7 @@ const GALLERY_ITEMS = [
     id: 'v5',
     type: 'video',
     category: 'home',
+    categoryName: 'Home Deep Clean',
     title: 'Villa Living Room Deep Cleaning Demonstration Video',
     videoSrc: 'assets/videos/work-video-5.mp4',
     poster: 'assets/images/gallery/work-8.png',
@@ -54,6 +59,7 @@ const GALLERY_ITEMS = [
     id: 'v6',
     type: 'video',
     category: 'sofa',
+    categoryName: 'Office & Carpet',
     title: 'Corporate Office Carpet Shampoo Extraction Video',
     videoSrc: 'assets/videos/work-video-6.mp4',
     poster: 'assets/images/gallery/work-21.png',
@@ -63,6 +69,7 @@ const GALLERY_ITEMS = [
     id: 'v7',
     type: 'video',
     category: 'commercial',
+    categoryName: 'Post Construction',
     title: 'Post-Construction Tile Dust & Paint Scrubbing Video',
     videoSrc: 'assets/videos/work-video-7.mp4',
     poster: 'assets/images/gallery/work-17.png',
@@ -72,6 +79,7 @@ const GALLERY_ITEMS = [
     id: 'v8',
     type: 'video',
     category: 'home',
+    categoryName: 'Balcony & Windows',
     title: 'Balcony & Exterior Window Frame Jet Wash Video',
     videoSrc: 'assets/videos/work-video-8.mp4',
     poster: 'assets/images/gallery/work-16.png',
@@ -79,34 +87,34 @@ const GALLERY_ITEMS = [
   },
 
   // --- HD WORK PHOTOS (28 Images) ---
-  { id: 8, type: 'photo', category: 'home', title: 'Villa Living Room Deep Cleaning', img: 'assets/images/gallery/work-8.png' },
-  { id: 9, type: 'photo', category: 'kitchen', title: 'Modular Kitchen Tile Degreasing', img: 'assets/images/gallery/work-9.png' },
-  { id: 10, type: 'photo', category: 'bathroom', title: 'Bathroom Descaling & Tile Whitening', img: 'assets/images/gallery/work-10.png' },
-  { id: 11, type: 'photo', category: 'sofa', title: 'L-Shaped Fabric Sofa Shampooing', img: 'assets/images/gallery/work-11.png' },
-  { id: 12, type: 'photo', category: 'floor', title: 'Marble Floor Machine Buffing & Scrubbing', img: 'assets/images/gallery/work-12.png' },
-  { id: 13, type: 'photo', category: 'home', title: 'Master Bedroom Deep Dusting & Sanitization', img: 'assets/images/gallery/work-13.png' },
-  { id: 14, type: 'photo', category: 'kitchen', title: 'Kitchen Chimney & Stove Hood Degreasing', img: 'assets/images/gallery/work-14.png' },
-  { id: 15, type: 'photo', category: 'commercial', title: 'Corporate Workstation Disinfection', img: 'assets/images/gallery/work-15.png' },
-  { id: 16, type: 'photo', category: 'home', title: 'Balcony Glass Squeegee Cleaning', img: 'assets/images/gallery/work-16.png' },
-  { id: 17, type: 'photo', category: 'commercial', title: 'Post-Renovation Tile Cement Splatter Removal', img: 'assets/images/gallery/work-17.png' },
-  { id: 18, type: 'photo', category: 'bathroom', title: 'Luxury Bathroom Glass & Fitting Polish', img: 'assets/images/gallery/work-18.png' },
-  { id: 19, type: 'photo', category: 'sofa', title: 'Dining Table Chair Fabric Shampooing', img: 'assets/images/gallery/work-19.png' },
-  { id: 20, type: 'photo', category: 'floor', title: 'Residential Villa Full Floor Scrubbing', img: 'assets/images/gallery/work-20.png' },
-  { id: 21, type: 'photo', category: 'sofa', title: 'Office Carpet Tile Extraction', img: 'assets/images/gallery/work-21.png' },
-  { id: 22, type: 'photo', category: 'home', title: 'High Ceiling Fan & Light Fixture Dusting', img: 'assets/images/gallery/work-22.png' },
-  { id: 23, type: 'photo', category: 'kitchen', title: 'Apartment Move-In Kitchen Sanitation', img: 'assets/images/gallery/work-23.png' },
-  { id: 24, type: 'photo', category: 'commercial', title: 'Commercial Showroom Floor Buffing', img: 'assets/images/gallery/work-24.png' },
-  { id: 26, type: 'photo', category: 'home', title: '3BHK Villa Complete Deep Clean Setup', img: 'assets/images/gallery/work-26.png' },
-  { id: 28, type: 'photo', category: 'kitchen', title: 'Kitchen Countertop & Backsplash Polish', img: 'assets/images/gallery/work-28.png' },
-  { id: 30, type: 'photo', category: 'bathroom', title: 'Bathroom Tile Grout Whitening & Sanitation', img: 'assets/images/gallery/work-30.png' },
-  { id: 32, type: 'photo', category: 'sofa', title: '7-Seater Sectional Sofa Deep Cleaning', img: 'assets/images/gallery/work-32.png' },
-  { id: 34, type: 'photo', category: 'floor', title: 'Marble Floor Heavy Single-Disc Scrubbing', img: 'assets/images/gallery/work-34.png' },
-  { id: 36, type: 'photo', category: 'commercial', title: 'Office Reception & Lobby Floor Shine', img: 'assets/images/gallery/work-36.png' },
-  { id: 38, type: 'photo', category: 'home', title: 'Window Glass & Metal Mesh Deep Cleaning', img: 'assets/images/gallery/work-38.png' },
-  { id: 40, type: 'photo', category: 'commercial', title: 'Post-Construction Floor Paint Splatter Scrubbing', img: 'assets/images/gallery/work-40.png' },
-  { id: 42, type: 'photo', category: 'commercial', title: 'Healthcare Clinic UV & Fog Decontamination', img: 'assets/images/gallery/work-42.png' },
-  { id: 44, type: 'photo', category: 'kitchen', title: 'Commercial Restaurant Kitchen Deep Degreasing', img: 'assets/images/gallery/work-44.png' },
-  { id: 46, type: 'photo', category: 'home', title: 'Luxury Apartment Deep Clean Finish', img: 'assets/images/gallery/work-46.png' }
+  { id: 8, type: 'photo', category: 'home', categoryName: 'Home Deep Clean', title: 'Villa Living Room Deep Cleaning', img: 'assets/images/gallery/work-8.png' },
+  { id: 9, type: 'photo', category: 'kitchen', categoryName: 'Kitchen Cleaning', title: 'Modular Kitchen Tile Degreasing & Polish', img: 'assets/images/gallery/work-9.png' },
+  { id: 10, type: 'photo', category: 'bathroom', categoryName: 'Bathroom Cleaning', title: 'Bathroom Descaling & Tile Whitening', img: 'assets/images/gallery/work-10.png' },
+  { id: 11, type: 'photo', category: 'sofa', categoryName: 'Sofa & Upholstery', title: 'L-Shaped Fabric Sofa Shampooing & Extraction', img: 'assets/images/gallery/work-11.png' },
+  { id: 12, type: 'photo', category: 'floor', categoryName: 'Floor Scrubbing', title: 'Marble Floor Machine Buffing & Rotary Scrubbing', img: 'assets/images/gallery/work-12.png' },
+  { id: 13, type: 'photo', category: 'home', categoryName: 'Home Deep Clean', title: 'Master Bedroom Deep Dusting & Sanitization', img: 'assets/images/gallery/work-13.png' },
+  { id: 14, type: 'photo', category: 'kitchen', categoryName: 'Kitchen Cleaning', title: 'Kitchen Chimney & Stove Hood Degreasing', img: 'assets/images/gallery/work-14.png' },
+  { id: 15, type: 'photo', category: 'commercial', categoryName: 'Commercial Cleaning', title: 'Corporate Workstation Disinfection & Cleaning', img: 'assets/images/gallery/work-15.png' },
+  { id: 16, type: 'photo', category: 'home', categoryName: 'Balcony & Windows', title: 'Balcony Glass Squeegee & Frame Cleaning', img: 'assets/images/gallery/work-16.png' },
+  { id: 17, type: 'photo', category: 'commercial', categoryName: 'Post Construction', title: 'Post-Renovation Tile Cement Splatter Removal', img: 'assets/images/gallery/work-17.png' },
+  { id: 18, type: 'photo', category: 'bathroom', categoryName: 'Bathroom Cleaning', title: 'Luxury Bathroom Glass & Chrome Fitting Polish', img: 'assets/images/gallery/work-18.png' },
+  { id: 19, type: 'photo', category: 'sofa', categoryName: 'Sofa & Upholstery', title: 'Dining Table Chair Fabric Foam Shampooing', img: 'assets/images/gallery/work-19.png' },
+  { id: 20, type: 'photo', category: 'floor', categoryName: 'Floor Scrubbing', title: 'Residential Villa Full Floor Machine Scrubbing', img: 'assets/images/gallery/work-20.png' },
+  { id: 21, type: 'photo', category: 'sofa', categoryName: 'Office & Carpet', title: 'Office Carpet Tile Deep Steam Extraction', img: 'assets/images/gallery/work-21.png' },
+  { id: 22, type: 'photo', category: 'home', categoryName: 'Home Deep Clean', title: 'High Ceiling Fan & Light Fixture Dusting', img: 'assets/images/gallery/work-22.png' },
+  { id: 23, type: 'photo', category: 'kitchen', categoryName: 'Kitchen Cleaning', title: 'Apartment Move-In Kitchen Sanitization', img: 'assets/images/gallery/work-23.png' },
+  { id: 24, type: 'photo', category: 'commercial', categoryName: 'Commercial Cleaning', title: 'Commercial Showroom Floor Machine Buffing', img: 'assets/images/gallery/work-24.png' },
+  { id: 26, type: 'photo', category: 'home', categoryName: 'Home Deep Clean', title: '3BHK Villa Complete Deep Clean Setup', img: 'assets/images/gallery/work-26.png' },
+  { id: 28, type: 'photo', category: 'kitchen', categoryName: 'Kitchen Cleaning', title: 'Kitchen Countertop & Backsplash Tile Polish', img: 'assets/images/gallery/work-28.png' },
+  { id: 30, type: 'photo', category: 'bathroom', categoryName: 'Bathroom Cleaning', title: 'Bathroom Tile Grout Whitening & Sanitization', img: 'assets/images/gallery/work-30.png' },
+  { id: 32, type: 'photo', category: 'sofa', categoryName: 'Sofa & Upholstery', title: '7-Seater Sectional Sofa Deep Foam Cleaning', img: 'assets/images/gallery/work-32.png' },
+  { id: 34, type: 'photo', category: 'floor', categoryName: 'Floor Scrubbing', title: 'Marble Floor Heavy Duty Single-Disc Scrubbing', img: 'assets/images/gallery/work-34.png' },
+  { id: 36, type: 'photo', category: 'commercial', categoryName: 'Commercial Cleaning', title: 'Office Reception & Lobby Floor Deep Shine', img: 'assets/images/gallery/work-36.png' },
+  { id: 38, type: 'photo', category: 'home', categoryName: 'Balcony & Windows', title: 'Window Glass & Metal Mesh Deep Vacuum Cleaning', img: 'assets/images/gallery/work-38.png' },
+  { id: 40, type: 'photo', category: 'commercial', categoryName: 'Post Construction', title: 'Post-Construction Floor Paint Splatter Scrubbing', img: 'assets/images/gallery/work-40.png' },
+  { id: 42, type: 'photo', category: 'commercial', categoryName: 'Commercial Cleaning', title: 'Healthcare Clinic UV & Fog Decontamination', img: 'assets/images/gallery/work-42.png' },
+  { id: 44, type: 'photo', category: 'kitchen', categoryName: 'Kitchen Cleaning', title: 'Commercial Restaurant Kitchen Deep Degreasing', img: 'assets/images/gallery/work-44.png' },
+  { id: 46, type: 'photo', category: 'home', categoryName: 'Home Deep Clean', title: 'Luxury Apartment Deep Clean Completion', img: 'assets/images/gallery/work-46.png' }
 ];
 
 let currentLightboxIndex = 0;
@@ -137,7 +145,7 @@ function renderGalleryGrid(filter = 'all') {
   container.innerHTML = currentFilteredGallery.map((item, index) => {
     const isVideo = item.type === 'video';
     const thumbnail = isVideo ? item.poster : item.img;
-    const badgeText = isVideo ? (item.badge || 'VIDEO') : 'HD PHOTO';
+    const badgeText = isVideo ? (item.badge || 'HD VIDEO') : 'HD PHOTO';
     const badgeClass = isVideo ? 'badge-video' : 'badge-photo';
     
     return `
@@ -157,6 +165,7 @@ function renderGalleryGrid(filter = 'all') {
         ` : ''}
 
         <div class="gallery-bottom-caption">
+          <div class="gallery-category-name">${item.categoryName || 'Cleaning Service'}</div>
           <div class="gallery-card-title">${item.title}</div>
         </div>
 
@@ -198,9 +207,6 @@ function handleGalleryItemClick(id, index) {
 }
 
 function openVideoModal(item) {
-  const container = document.getElementById('lightboxContainer') || document.body;
-  
-  // Remove existing modal if any
   const existing = document.getElementById('videoModal');
   if (existing) existing.remove();
 
@@ -224,7 +230,7 @@ function openVideoModal(item) {
           <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px;">
             Kakatiya Professional Cleaning Services — Quality Work Demonstrated Live in Hyderabad
           </p>
-          <div style="display:flex; gap:12px; justify-content:center;">
+          <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap;">
             <a href="tel:9030798839" class="btn btn-primary">
               <i class="fa-solid fa-phone"></i> Call 9030798839
             </a>
@@ -247,7 +253,6 @@ function openVideoModal(item) {
 function closeVideoModal() {
   const modal = document.getElementById('videoModal');
   if (modal) {
-    // Pause video player before removing
     const video = modal.querySelector('video');
     if (video) video.pause();
     modal.classList.remove('active');
@@ -262,8 +267,6 @@ function openLightbox(photoIndex) {
   currentLightboxIndex = photoIndex;
   const item = currentPhotosOnly[currentLightboxIndex];
   if (!item) return;
-
-  const modalContainer = document.getElementById('lightboxContainer') || document.body;
 
   const existing = document.getElementById('lightboxModal');
   if (existing) existing.remove();
@@ -314,7 +317,6 @@ function closeLightbox() {
   document.body.style.overflow = '';
 }
 
-// Global modal overlay click helper
 function closeModalOnOverlay(e, modalId) {
   if (e.target.id === modalId) {
     if (modalId === 'videoModal') closeVideoModal();
