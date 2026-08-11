@@ -7,9 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   // Initialize Modules
   if (typeof initServices === 'function') initServices();
-  if (typeof initBeforeAfterSlider === 'function') initBeforeAfterSlider();
   if (typeof initGallery === 'function') initGallery();
-  if (typeof initBlog === 'function') initBlog();
   if (typeof initPopups === 'function') initPopups();
 
   setupHeaderScroll();
@@ -19,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupSmoothScroll();
 });
 
-// Preloader Progress Simulation (Image 4 Reference)
+// Preloader Progress Simulation
 function initPreloader() {
   const preloader = document.getElementById('sitePreloader');
   const progressBar = document.getElementById('preloaderProgressBar');
@@ -29,7 +27,8 @@ function initPreloader() {
 
   let progress = 0;
   const interval = setInterval(() => {
-    progress += Math.floor(Math.random() * 9) + 5;
+    // Increased duration: increments 2-5% every 45ms (~2.8s total)
+    progress += Math.floor(Math.random() * 4) + 2;
     if (progress >= 100) {
       progress = 100;
       progressBar.style.width = '100%';
@@ -40,12 +39,12 @@ function initPreloader() {
         setTimeout(() => {
           preloader.style.display = 'none';
         }, 600);
-      }, 250);
+      }, 400);
     } else {
       progressBar.style.width = `${progress}%`;
       percentText.innerText = `${progress}%`;
     }
-  }, 35);
+  }, 45);
 }
 
 // Sticky Header Scroll Handler

@@ -917,7 +917,26 @@ h1, h2, h3, h4, h5, h6 {
   border-color: var(--primary);
 }
 
-/* --- GALLERY SECTION --- */
+/* --- WORKS HERO BANNER --- */
+.works-hero-section {
+  padding: 100px 0 70px 0;
+  background: linear-gradient(135deg, #1b0830 0%, #2f1254 50%, #157956 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.works-hero-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(37,211,102,0.12) 0%, rgba(0,0,0,0) 65%);
+  pointer-events: none;
+}
+
+/* --- GALLERY SECTION & CARDS --- */
 .gallery-section {
   padding: 90px 0;
   background-color: var(--bg-white);
@@ -926,16 +945,23 @@ h1, h2, h3, h4, h5, h6 {
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  gap: 22px;
 }
 
 .gallery-item {
   position: relative;
   border-radius: var(--border-radius-md);
   overflow: hidden;
-  height: 250px;
-  box-shadow: var(--shadow-sm);
+  height: 290px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   cursor: pointer;
+  background: #0d041a;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.gallery-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 18px 35px rgba(0, 0, 0, 0.2);
 }
 
 .gallery-item img {
@@ -945,13 +971,94 @@ h1, h2, h3, h4, h5, h6 {
   transition: transform 0.5s ease;
 }
 
+.gallery-badge-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  padding: 5px 12px;
+  border-radius: 30px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  z-index: 5;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.badge-video {
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #ffffff;
+}
+
+.badge-photo {
+  background: rgba(18, 6, 38, 0.85);
+  backdrop-filter: blur(4px);
+  color: #ffffff;
+  border: 1px solid rgba(255,255,255,0.25);
+}
+
+.gallery-play-btn-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+  pointer-events: none;
+}
+
+.play-icon-circle {
+  width: 58px;
+  height: 58px;
+  background: rgba(37, 211, 102, 0.92);
+  color: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.6);
+  animation: playPulse 2s infinite;
+}
+
+@keyframes playPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+.gallery-bottom-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 16px 14px 12px 14px;
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(18, 6, 38, 0.92) 100%);
+  z-index: 4;
+  transition: opacity 0.3s ease;
+}
+
+.gallery-card-title {
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
 .gallery-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(35, 12, 73, 0.75);
+  background: rgba(27, 8, 48, 0.82);
+  backdrop-filter: blur(3px);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -961,10 +1068,11 @@ h1, h2, h3, h4, h5, h6 {
   color: #ffffff;
   padding: 20px;
   text-align: center;
+  z-index: 7;
 }
 
 .gallery-item:hover img {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .gallery-item:hover .gallery-overlay {
@@ -972,20 +1080,30 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .gallery-zoom-icon {
-  width: 46px;
-  height: 46px;
+  width: 52px;
+  height: 52px;
   background: var(--whatsapp-green);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+  font-size: 1.35rem;
+  margin-bottom: 12px;
+  box-shadow: 0 8px 20px rgba(37,211,102,0.4);
 }
 
 .gallery-title {
   font-size: 1.05rem;
   font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.gallery-click-hint {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  background: rgba(255,255,255,0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
 }
 
 /* --- REVIEWS / TESTIMONIALS --- */
@@ -1684,6 +1802,12 @@ textarea.form-control {
   }
   .gallery-grid, .reviews-grid, .blog-grid, .contact-grid, .area-grid {
     grid-template-columns: 1fr;
+  }
+  .gallery-item {
+    height: 260px;
+  }
+  .works-hero-section h1 {
+    font-size: 1.95rem !important;
   }
   .ba-comparison {
     height: 270px;
