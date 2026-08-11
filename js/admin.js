@@ -67,15 +67,35 @@ async function handleAdminLogin(e) {
 
   hideLoginAlert();
   submitBtn.disabled = true;
-  submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Signing in...';
+  submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Authenticating...';
 
   try {
     const sb = getSupabase();
-    const { data, error } = await sb.auth.signInWithPassword({ email, password });
+    // 1. Try Signing In
+    let { data, error } = await sb.auth.signInWithPassword({ email, password });
 
-    if (error) {
+    if (error && (error.message.includes('Invalid login credentials') || error.message.includes('User not found'))) {
+      // 2. Fallback: First-Time Registration via SignUp
+      submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Creating initial admin account...';
+      const signUpRes = await sb.auth.signUp({ email, password });
+      
+      if (signUpRes.error) {
+        showLoginAlert(`Sign In Error: ${error.message}. Also failed to create account: ${signUpRes.error.message}`);
+      } else if (signUpRes.data.session) {
+        showDashboardView(signUpRes.data.session.user);
+      } else if (signUpRes.data.user) {
+        // Created user but email confirmation might be enabled in Supabase project
+        // Try sign-in once more
+        const retrySignIn = await sb.auth.signInWithPassword({ email, password });
+        if (retrySignIn.data && retrySignIn.data.session) {
+          showDashboardView(retrySignIn.data.session.user);
+        } else {
+          showLoginAlert('Admin account created in Supabase! If email confirmation is enabled in your Supabase project, please check your inbox or create the user in Supabase Dashboard -> Authentication -> Users.');
+        }
+      }
+    } else if (error) {
       showLoginAlert(error.message || 'Invalid email or password.');
-    } else if (data.session) {
+    } else if (data && data.session) {
       showDashboardView(data.session.user);
     }
   } catch (err) {
